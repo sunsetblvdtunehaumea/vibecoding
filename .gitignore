@@ -1,0 +1,108 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Production
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Prisma
+prisma/migrations/**/*.sql
+!prisma/migrations/**/migration.sql
+prisma/dev.db
+prisma/dev.db-journal
+
+# Database
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+postgres-data/
+pgdata/
+
+# Redis
+dump.rdb
+appendonly.aof
+redis-data/
+
+# ChromaDB
+chroma-data/
+.chroma/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.history/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Misc
+.vercel
+.turbo
+*.pem
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+
+# Data files (don't commit source data)
+data/*.json
+!data/sample.json
+
+# Scripts output
+scripts/output/
+scripts/logs/

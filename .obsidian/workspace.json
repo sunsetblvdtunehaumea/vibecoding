@@ -168,6 +168,8 @@
   },
   "active": "dcfadd2a0bbc6d47",
   "lastOpenFiles": [
+    "README.md",
+    "vision.md",
     "CLAUDE.md",
     "ARCHITECTURE.md",
     "docs/vision.md",
@@ -175,7 +177,6 @@
     "docs",
     "mockups.md",
     "GEMINI.md",
-    "vision.md",
     "credit_card_rag_project_specification.md",
     "credit_card_rag_svg_mockups.html",
     "rag_credit_card_no_agent_name_mockups.txt",

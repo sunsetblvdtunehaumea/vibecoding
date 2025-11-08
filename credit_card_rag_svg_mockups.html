@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card RAG Application - SVG Mockups</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .mockup-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .mockup-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #2a5298;
+            padding-bottom: 10px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background: white;
+        }
+        .interactive {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .interactive:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+        .button-hover:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💳 Credit Card Process Knowledge Base - RAG Application</h1>
+        
+        <!-- Mockup 1: Main Search Interface -->
+        <div class="mockup-grid">
+            <div class="mockup-card">
+                <div class="mockup-title">1. Main Search Interface - Credit Card Processes</div>
+                <svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Window Frame -->
+                    <rect x="0" y="0" width="900" height="650" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+                    
+                    <!-- Header Bar -->
+                    <rect x="0" y="0" width="900" height="60" fill="#1a365d"/>
+                    <text x="20" y="38" fill="white" font-size="20" font-weight="bold">≡ Menu</text>
+                    <line x1="90" y1="15" x2="90" y2="45" stroke="#2c5282" stroke-width="2"/>
+                    <text x="110" y="38" fill="white" font-size="20">Credit Card Process Knowledge Base - RAG Search</text>
+                    
+                    <!-- Title Section -->
+                    <rect x="50" y="80" width="800" height="50" fill="#e6f3ff" rx="5"/>
+                    <text x="450" y="110" fill="#1a365d" font-size="22" font-weight="bold" text-anchor="middle">
+                        CREDIT CARD PROCESS &amp; PROCEDURE SEARCH
+                    </text>
+                    
+                    <!-- Search Box -->
+                    <rect x="50" y="150" width="800" height="60" fill="white" stroke="#2a5298" stroke-width="2" rx="8" class="interactive"/>
+                    <circle cx="80" cy="180" r="12" fill="none" stroke="#2a5298" stroke-width="2"/>
+                    <line x1="89" y1="189" x2="95" y2="195" stroke="#2a5298" stroke-width="2"/>
+                    <text x="110" y="185" fill="#718096" font-size="18">Search credit card processes, procedures, policies...</text>
+                    
+                    <!-- Search Buttons -->
+                    <rect x="50" y="225" width="120" height="40" fill="#2a5298" rx="5" class="interactive button-hover"/>
+                    <text x="110" y="250" fill="white" font-size="16" text-anchor="middle">Search Process</text>
+                    
+                    <rect x="180" y="225" width="80" height="40" fill="#e2e8f0" rx="5" class="interactive button-hover"/>
+                    <text x="220" y="250" fill="#4a5568" font-size="16" text-anchor="middle">Clear</text>
+                    
+                    <rect x="270" y="225" width="100" height="40" fill="#e2e8f0" rx="5" class="interactive button-hover"/>
+                    <text x="320" y="250" fill="#4a5568" font-size="16" text-anchor="middle">🎤 Voice</text>
+                    
+                    <rect x="380" y="225" width="140" height="40" fill="#e2e8f0" rx="5" class="interactive button-hover"/>
+                    <text x="450" y="250" fill="#4a5568" font-size="16" text-anchor="middle">Advanced Search</text>
+                    
+                    <!-- Common Processes Title -->
+                    <text x="50" y="300" fill="#1a365d" font-size="18" font-weight="bold">Common Credit Card Processes:</text>
+                    
+                    <!-- Process Cards Row 1 -->
+                    <g id="process-cards">
+                        <!-- Card Disputes -->
+                        <rect x="50" y="320" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="142" y="360" font-size="30" text-anchor="middle">📋</text>
+                        <text x="142" y="390" fill="#2d3748" font-size="14" text-anchor="middle">Card</text>
+                        <text x="142" y="407" fill="#2d3748" font-size="14" text-anchor="middle">Disputes</text>
+                        
+                        <!-- Credit Card Fraud -->
+                        <rect x="250" y="320" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="342" y="360" font-size="30" text-anchor="middle">⚠️</text>
+                        <text x="342" y="390" fill="#2d3748" font-size="14" text-anchor="middle">Credit Card</text>
+                        <text x="342" y="407" fill="#2d3748" font-size="14" text-anchor="middle">Fraud</text>
+                        
+                        <!-- Credit Line Increases -->
+                        <rect x="450" y="320" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="542" y="360" font-size="30" text-anchor="middle">📊</text>
+                        <text x="542" y="390" fill="#2d3748" font-size="14" text-anchor="middle">Credit Line</text>
+                        <text x="542" y="407" fill="#2d3748" font-size="14" text-anchor="middle">Increases</text>
+                        
+                        <!-- Card Replacement -->
+                        <rect x="650" y="320" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="742" y="360" font-size="30" text-anchor="middle">💳</text>
+                        <text x="742" y="390" fill="#2d3748" font-size="14" text-anchor="middle">Card</text>
+                        <text x="742" y="407" fill="#2d3748" font-size="14" text-anchor="middle">Replacement</text>
+                    </g>
+                    
+                    <!-- Process Cards Row 2 -->
+                    <g id="process-cards-row2">
+                        <!-- Annual Fee Waiver -->
+                        <rect x="50" y="435" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="142" y="475" font-size="30" text-anchor="middle">💰</text>
+                        <text x="142" y="505" fill="#2d3748" font-size="14" text-anchor="middle">Annual</text>
+                        <text x="142" y="522" fill="#2d3748" font-size="14" text-anchor="middle">Fee Waiver</text>
+                        
+                        <!-- Balance Transfer -->
+                        <rect x="250" y="435" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="342" y="475" font-size="30" text-anchor="middle">↔️</text>
+                        <text x="342" y="505" fill="#2d3748" font-size="14" text-anchor="middle">Balance</text>
+                        <text x="342" y="522" fill="#2d3748" font-size="14" text-anchor="middle">Transfer</text>
+                        
+                        <!-- Travel Alerts -->
+                        <rect x="450" y="435" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="542" y="475" font-size="30" text-anchor="middle">✈️</text>
+                        <text x="542" y="505" fill="#2d3748" font-size="14" text-anchor="middle">Travel</text>
+                        <text x="542" y="522" fill="#2d3748" font-size="14" text-anchor="middle">Alerts</text>
+                        
+                        <!-- Cash Advance -->
+                        <rect x="650" y="435" width="185" height="100" fill="#fff" stroke="#cbd5e0" stroke-width="2" rx="8" class="interactive"/>
+                        <text x="742" y="475" font-size="30" text-anchor="middle">💵</text>
+                        <text x="742" y="505" fill="#2d3748" font-size="14" text-anchor="middle">Cash</text>
+                        <text x="742" y="522" fill="#2d3748" font-size="14" text-anchor="middle">Advance</text>
+                    </g>
+                    
+                    <!-- Recent Searches -->
+                    <text x="50" y="565" fill="#4a5568" font-size="16" font-weight="bold">Recent Process Searches:</text>
+                    <text x="50" y="585" fill="#718096" font-size="14">• "Chargeback dispute for credit card transaction"</text>
+                    <text x="50" y="605" fill="#718096" font-size="14">• "Credit card limit increase approval criteria"</text>
+                    
+                    <!-- Footer Stats -->
+                    <rect x="0" y="615" width="900" height="35" fill="#e6f3ff"/>
+                    <text x="50" y="638" fill="#1a365d" font-size="14">📚 Credit Card Knowledge Base: 1,247 procedures | Updated: 2 hours ago</text>
+                </svg>
+            </div>
+            
+            <!-- Mockup 2: Search Results -->
+            <div class="mockup-card">
+                <div class="mockup-title">2. Credit Card Process Search Results</div>
+                <svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Window Frame -->
+                    <rect x="0" y="0" width="900" height="650" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+                    
+                    <!-- Header Bar -->
+                    <rect x="0" y="0" width="900" height="60" fill="#1a365d"/>
+                    <text x="20" y="38" fill="white" font-size="20" font-weight="bold">≡ Menu</text>
+                    <line x1="90" y1="15" x2="90" y2="45" stroke="#2c5282" stroke-width="2"/>
+                    <text x="110" y="38" fill="white" font-size="20">Credit Card Process Knowledge Base - RAG Search</text>
+                    
+                    <!-- Search Box with Query -->
+                    <rect x="50" y="80" width="800" height="50" fill="white" stroke="#2a5298" stroke-width="3" rx="8"/>
+                    <circle cx="75" cy="105" r="10" fill="none" stroke="#2a5298" stroke-width="2"/>
+                    <line x1="83" y1="113" x2="88" y2="118" stroke="#2a5298" stroke-width="2"/>
+                    <text x="100" y="110" fill="#1a365d" font-size="16" font-weight="500">"Lost credit card dispute international"</text>
+                    
+                    <!-- Response Time -->
+                    <rect x="50" y="145" width="200" height="30" fill="#c6f6d5" rx="15"/>
+                    <text x="60" y="165" fill="#22543d" font-size="14" font-weight="bold">⚡ Process Found (0.3 seconds)</text>
+                    
+                    <!-- Result Container -->
+                    <rect x="50" y="190" width="800" height="400" fill="white" stroke="#cbd5e0" stroke-width="2" rx="8"/>
+                    
+                    <!-- Result Title -->
+                    <rect x="70" y="210" width="760" height="40" fill="#e6f3ff" rx="5"/>
+                    <text x="80" y="235" fill="#1a365d" font-size="18" font-weight="bold">💳 INTERNATIONAL LOST CREDIT CARD DISPUTE PROCESS</text>
+                    <line x1="80" y1="245" x2="400" y2="245" stroke="#2a5298" stroke-width="2"/>
+                    
+                    <!-- Step 1 -->
+                    <text x="80" y="280" fill="#1a365d" font-size="16" font-weight="bold">STEP 1: CREDIT CARD BLOCKING</text>
+                    <text x="100" y="305" fill="#4a5568" font-size="14">├─ Go to: Card Management System (CMS)</text>
+                    <text x="100" y="325" fill="#4a5568" font-size="14">├─ Action: Block Credit Card</text>
+                    <text x="100" y="345" fill="#4a5568" font-size="14">├─ Code: CC-LOST-INTL</text>
+                    <text x="100" y="365" fill="#4a5568" font-size="14">└─ Verification: Status shows "BLOCKED-CC-INTL"</text>
+                    
+                    <!-- Step 2 -->
+                    <text x="80" y="400" fill="#1a365d" font-size="16" font-weight="bold">STEP 2: CREDIT CARD INCIDENT TICKET</text>
+                    <text x="100" y="425" fill="#4a5568" font-size="14">├─ System: Credit Card Incident Portal (CCIP)</text>
+                    <text x="100" y="445" fill="#4a5568" font-size="14">├─ Form: CC-INC-447</text>
+                    <text x="100" y="465" fill="#4a5568" font-size="14">├─ Category: International CC Loss</text>
+                    <text x="100" y="485" fill="#4a5568" font-size="14">└─ Priority: High</text>
+                    
+                    <!-- Step 3 -->
+                    <text x="460" y="280" fill="#1a365d" font-size="16" font-weight="bold">STEP 3: CREDIT CARD DISPUTE FILING</text>
+                    <text x="480" y="305" fill="#4a5568" font-size="14">├─ System: Credit Card Dispute System (CCDS)</text>
+                    <text x="480" y="325" fill="#4a5568" font-size="14">├─ Form: CC-DSP-447 (International)</text>
+                    <text x="480" y="345" fill="#4a5568" font-size="14">├─ Timeline: 2 business days provisional credit</text>
+                    <text x="480" y="365" fill="#4a5568" font-size="14">├─ Amount Limit: Up to $500 automatic</text>
+                    <text x="480" y="385" fill="#4a5568" font-size="14">└─ Investigation: 45 days for credit cards</text>
+                    
+                    <!-- Reference Documents -->
+                    <rect x="70" y="520" width="760" height="50" fill="#f7fafc" rx="5"/>
+                    <text x="80" y="540" fill="#718096" font-size="14" font-weight="bold">📄 Reference Documents:</text>
+                    <text x="80" y="560" fill="#718096" font-size="13">• Credit Card Policy Manual 12.3  • International CC Services Guide 2.1  • Credit Card Dispute Procedures 4.7</text>
+                    
+                    <!-- Action Buttons -->
+                    <rect x="50" y="600" width="120" height="35" fill="#10b981" rx="5" class="interactive button-hover"/>
+                    <text x="110" y="622" fill="white" font-size="14" text-anchor="middle">Copy Process</text>
+                    
+                    <rect x="180" y="600" width="100" height="35" fill="#3182ce" rx="5" class="interactive button-hover"/>
+                    <text x="230" y="622" fill="white" font-size="14" text-anchor="middle">Print Steps</text>
+                    
+                    <rect x="290" y="600" width="130" height="35" fill="#8b5cf6" rx="5" class="interactive button-hover"/>
+                    <text x="355" y="622" fill="white" font-size="14" text-anchor="middle">View Full Policy</text>
+                    
+                    <rect x="430" y="600" width="160" height="35" fill="#f59e0b" rx="5" class="interactive button-hover"/>
+                    <text x="510" y="622" fill="white" font-size="14" text-anchor="middle">Related CC Processes</text>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Mockup 3: Quick Reference Dashboard -->
+        <div class="mockup-grid">
+            <div class="mockup-card">
+                <div class="mockup-title">3. Credit Card Quick Reference Dashboard</div>
+                <svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Window Frame -->
+                    <rect x="0" y="0" width="900" height="650" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+                    
+                    <!-- Header -->
+                    <rect x="0" y="0" width="900" height="60" fill="#1a365d"/>
+                    <text x="20" y="38" fill="white" font-size="20" font-weight="bold">≡ Menu</text>
+                    <line x1="90" y1="15" x2="90" y2="45" stroke="#2c5282" stroke-width="2"/>
+                    <text x="110" y="38" fill="white" font-size="20">Credit Card Quick Reference Dashboard</text>
+                    
+                    <!-- Left Panel - Top Processes -->
+                    <rect x="20" y="80" width="280" height="350" fill="white" stroke="#cbd5e0" stroke-width="1" rx="8"/>
+                    <rect x="20" y="80" width="280" height="40" fill="#e6f3ff" rx="8 8 0 0"/>
+                    <text x="30" y="105" fill="#1a365d" font-size="16" font-weight="bold">TOP CREDIT CARD PROCESSES TODAY</text>
+                    
+                    <text x="30" y="145" fill="#4a5568" font-size="14">1. Credit limit increase</text>
+                    <text x="30" y="170" fill="#4a5568" font-size="14">2. Dispute - unauthorized</text>
+                    <text x="30" y="195" fill="#4a5568" font-size="14">3. Annual fee waiver</text>
+                    <text x="30" y="220" fill="#4a5568" font-size="14">4. Fraud alert on card</text>
+                    <text x="30" y="245" fill="#4a5568" font-size="14">5. Travel notification</text>
+                    <text x="30" y="270" fill="#4a5568" font-size="14">6. Replacement card rush</text>
+                    <text x="30" y="295" fill="#4a5568" font-size="14">7. Balance transfer</text>
+                    <text x="30" y="320" fill="#4a5568" font-size="14">8. Cash advance setup</text>
+                    <text x="30" y="345" fill="#4a5568" font-size="14">9. Rewards redemption</text>
+                    <text x="30" y="370" fill="#4a5568" font-size="14">10. PIN reset</text>
+                    
+                    <!-- Middle Panel - Credit Card Codes -->
+                    <rect x="320" y="80" width="280" height="350" fill="white" stroke="#cbd5e0" stroke-width="1" rx="8"/>
+                    <rect x="320" y="80" width="280" height="40" fill="#e6f3ff" rx="8 8 0 0"/>
+                    <text x="330" y="105" fill="#1a365d" font-size="16" font-weight="bold">CREDIT CARD CODES</text>
+                    
+                    <text x="330" y="145" fill="#2d3748" font-size="14" font-weight="bold">Block Codes:</text>
+                    <text x="330" y="165" fill="#4a5568" font-size="13">• CC-LOST-DOM   - Lost domestic</text>
+                    <text x="330" y="185" fill="#4a5568" font-size="13">• CC-LOST-INTL  - Lost international</text>
+                    <text x="330" y="205" fill="#4a5568" font-size="13">• CC-FRAUD-DOM  - Fraud domestic</text>
+                    <text x="330" y="225" fill="#4a5568" font-size="13">• CC-FRAUD-INTL - Fraud international</text>
+                    <text x="330" y="245" fill="#4a5568" font-size="13">• CC-STOLEN     - Stolen card</text>
+                    
+                    <text x="330" y="275" fill="#2d3748" font-size="14" font-weight="bold">Credit Card Forms:</text>
+                    <text x="330" y="295" fill="#4a5568" font-size="13">• CC-DSP-201 - Purchase dispute</text>
+                    <text x="330" y="315" fill="#4a5568" font-size="13">• CC-DSP-447 - International</text>
+                    <text x="330" y="335" fill="#4a5568" font-size="13">• CC-DSP-449 - Fraud dispute</text>
+                    <text x="330" y="355" fill="#4a5568" font-size="13">• CC-CLI-100 - Limit increase</text>
+                    <text x="330" y="375" fill="#4a5568" font-size="13">• CC-FEE-200 - Fee waiver</text>
+                    
+                    <!-- Right Panel - Systems -->
+                    <rect x="620" y="80" width="260" height="350" fill="white" stroke="#cbd5e0" stroke-width="1" rx="8"/>
+                    <rect x="620" y="80" width="260" height="40" fill="#e6f3ff" rx="8 8 0 0"/>
+                    <text x="630" y="105" fill="#1a365d" font-size="16" font-weight="bold">CREDIT CARD SYSTEMS</text>
+                    
+                    <text x="630" y="145" fill="#4a5568" font-size="13">• CMS   - Card Management</text>
+                    <text x="630" y="170" fill="#4a5568" font-size="13">• CCDS  - CC Dispute System</text>
+                    <text x="630" y="195" fill="#4a5568" font-size="13">• CCIP  - CC Incident Portal</text>
+                    <text x="630" y="220" fill="#4a5568" font-size="13">• CCFMS - CC Fraud Management</text>
+                    <text x="630" y="245" fill="#4a5568" font-size="13">• CCM   - Corporate Cards</text>
+                    <text x="630" y="270" fill="#4a5568" font-size="13">• CCTS  - CC Transaction System</text>
+                    <text x="630" y="295" fill="#4a5568" font-size="13">• CCIL  - CC Interaction Log</text>
+                    
+                    <!-- Policy Updates Section -->
+                    <rect x="20" y="450" width="860" height="120" fill="white" stroke="#cbd5e0" stroke-width="1" rx="8"/>
+                    <rect x="20" y="450" width="860" height="35" fill="#fef3c7" rx="8 8 0 0"/>
+                    <text x="30" y="473" fill="#92400e" font-size="16" font-weight="bold">CREDIT CARD POLICY UPDATES</text>
+                    
+                    <rect x="35" y="495" width="10" height="10" fill="#ef4444" rx="2"/>
+                    <text x="55" y="505" fill="#dc2626" font-size="14" font-weight="bold">NEW:</text>
+                    <text x="100" y="505" fill="#4a5568" font-size="14">Premium card fee waiver criteria updated (Nov 7)</text>
+                    
+                    <rect x="35" y="520" width="10" height="10" fill="#f59e0b" rx="2"/>
+                    <text x="55" y="530" fill="#d97706" font-size="14" font-weight="bold">UPDATE:</text>
+                    <text x="120" y="530" fill="#4a5568" font-size="14">Credit limit auto-approval raised to $25K (Nov 5)</text>
+                    
+                    <rect x="35" y="545" width="10" height="10" fill="#10b981" rx="2"/>
+                    <text x="55" y="555" fill="#059669" font-size="14" font-weight="bold">ALERT:</text>
+                    <text x="105" y="555" fill="#4a5568" font-size="14">New chip card activation process now live</text>
+                    
+                    <!-- Bottom Action Buttons -->
+                    <rect x="20" y="590" width="140" height="40" fill="#2a5298" rx="5" class="interactive button-hover"/>
+                    <text x="90" y="615" fill="white" font-size="14" text-anchor="middle">Search CC Process</text>
+                    
+                    <rect x="170" y="590" width="120" height="40" fill="#8b5cf6" rx="5" class="interactive button-hover"/>
+                    <text x="230" y="615" fill="white" font-size="14" text-anchor="middle">View Updates</text>
+                    
+                    <rect x="300" y="590" width="120" height="40" fill="#10b981" rx="5" class="interactive button-hover"/>
+                    <text x="360" y="615" fill="white" font-size="14" text-anchor="middle">System Status</text>
+                    
+                    <rect x="430" y="590" width="110" height="40" fill="#f59e0b" rx="5" class="interactive button-hover"/>
+                    <text x="485" y="615" fill="white" font-size="14" text-anchor="middle">CC Training</text>
+                </svg>
+            </div>
+            
+            <!-- Mockup 4: Dispute Comparison Matrix -->
+            <div class="mockup-card">
+                <div class="mockup-title">4. Credit Card Dispute Comparison Matrix</div>
+                <svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Window Frame -->
+                    <rect x="0" y="0" width="900" height="650" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+                    
+                    <!-- Header -->
+                    <rect x="0" y="0" width="900" height="60" fill="#1a365d"/>
+                    <text x="20" y="38" fill="white" font-size="20" font-weight="bold">≡ Menu</text>
+                    <line x1="90" y1="15" x2="90" y2="45" stroke="#2c5282" stroke-width="2"/>
+                    <text x="110" y="38" fill="white" font-size="20">Credit Card Process Knowledge Base - RAG Search</text>
+                    
+                    <!-- Search Query -->
+                    <rect x="50" y="80" width="800" height="45" fill="white" stroke="#2a5298" stroke-width="2" rx="8"/>
+                    <text x="70" y="108" fill="#1a365d" font-size="16">🔍 "Compare credit card dispute types"</text>
+                    
+                    <!-- Response Time -->
+                    <rect x="50" y="135" width="240" height="30" fill="#c6f6d5" rx="15"/>
+                    <text x="60" y="155" fill="#22543d" font-size="14" font-weight="bold">⚡ Comparison Matrix (0.4 seconds)</text>
+                    
+                    <!-- Comparison Table -->
+                    <g id="comparison-table">
+                        <!-- Table Container -->
+                        <rect x="50" y="180" width="800" height="320" fill="white" stroke="#cbd5e0" stroke-width="2" rx="8"/>
+                        
+                        <!-- Header Row -->
+                        <rect x="50" y="180" width="200" height="40" fill="#2a5298"/>
+                        <text x="150" y="205" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Dispute Type</text>
+                        
+                        <rect x="250" y="180" width="200" height="40" fill="#2a5298"/>
+                        <text x="350" y="205" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Standard Purchase</text>
+                        
+                        <rect x="450" y="180" width="200" height="40" fill="#2a5298"/>
+                        <text x="550" y="205" fill="white" font-size="14" font-weight="bold" text-anchor="middle">CC Fraud</text>
+                        
+                        <rect x="650" y="180" width="200" height="40" fill="#2a5298"/>
+                        <text x="750" y="205" fill="white" font-size="14" font-weight="bold" text-anchor="middle">International</text>
+                        
+                        <!-- Table Rows -->
+                        <!-- Row 1 - Form Required -->
+                        <line x1="50" y1="220" x2="850" y2="220" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="220" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="242" fill="#4a5568" font-size="13" font-weight="bold">Form Required</text>
+                        <text x="260" y="242" fill="#4a5568" font-size="13">CC-DSP-201</text>
+                        <text x="460" y="242" fill="#4a5568" font-size="13">CC-DSP-449</text>
+                        <text x="660" y="242" fill="#4a5568" font-size="13">CC-DSP-447</text>
+                        
+                        <!-- Row 2 - System -->
+                        <line x1="50" y1="255" x2="850" y2="255" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="255" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="277" fill="#4a5568" font-size="13" font-weight="bold">System</text>
+                        <text x="260" y="277" fill="#4a5568" font-size="13">CCDS</text>
+                        <text x="460" y="277" fill="#4a5568" font-size="13">CCDS + FMS</text>
+                        <text x="660" y="277" fill="#4a5568" font-size="13">CCDS + IMS</text>
+                        
+                        <!-- Row 3 - Timeline -->
+                        <line x1="50" y1="290" x2="850" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="290" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="312" fill="#4a5568" font-size="13" font-weight="bold">Timeline</text>
+                        <text x="260" y="312" fill="#4a5568" font-size="13">5-7 days</text>
+                        <text x="460" y="312" fill="#dc2626" font-size="13" font-weight="bold">24 hours</text>
+                        <text x="660" y="312" fill="#059669" font-size="13" font-weight="bold">2-3 days</text>
+                        
+                        <!-- Row 4 - Auto Credit -->
+                        <line x1="50" y1="325" x2="850" y2="325" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="325" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="347" fill="#4a5568" font-size="13" font-weight="bold">Auto Credit</text>
+                        <text x="260" y="347" fill="#4a5568" font-size="13">$250</text>
+                        <text x="460" y="347" fill="#4a5568" font-size="13">$500</text>
+                        <text x="660" y="347" fill="#4a5568" font-size="13">$500</text>
+                        
+                        <!-- Row 5 - Card Block -->
+                        <line x1="50" y1="360" x2="850" y2="360" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="360" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="382" fill="#4a5568" font-size="13" font-weight="bold">Card Block Req?</text>
+                        <text x="260" y="382" fill="#4a5568" font-size="13">No</text>
+                        <text x="460" y="382" fill="#dc2626" font-size="13" font-weight="bold">Yes</text>
+                        <text x="660" y="382" fill="#f59e0b" font-size="13">Usually</text>
+                        
+                        <!-- Row 6 - Priority -->
+                        <line x1="50" y1="395" x2="850" y2="395" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="395" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="417" fill="#4a5568" font-size="13" font-weight="bold">Priority Level</text>
+                        <text x="260" y="417" fill="#4a5568" font-size="13">Normal</text>
+                        <text x="460" y="417" fill="#dc2626" font-size="13" font-weight="bold">High</text>
+                        <text x="660" y="417" fill="#dc2626" font-size="13" font-weight="bold">High</text>
+                        
+                        <!-- Row 7 - Investigation -->
+                        <line x1="50" y1="430" x2="850" y2="430" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="430" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="452" fill="#4a5568" font-size="13" font-weight="bold">Investigation</text>
+                        <text x="260" y="452" fill="#4a5568" font-size="13">60 days</text>
+                        <text x="460" y="452" fill="#4a5568" font-size="13">90 days</text>
+                        <text x="660" y="452" fill="#4a5568" font-size="13">45 days</text>
+                        
+                        <!-- Row 8 - New Card -->
+                        <line x1="50" y1="465" x2="850" y2="465" stroke="#e2e8f0" stroke-width="1"/>
+                        <rect x="50" y="465" width="200" height="35" fill="#f7fafc"/>
+                        <text x="60" y="487" fill="#4a5568" font-size="13" font-weight="bold">New Card Issue</text>
+                        <text x="260" y="487" fill="#4a5568" font-size="13">Optional</text>
+                        <text x="460" y="487" fill="#dc2626" font-size="13" font-weight="bold">Mandatory</text>
+                        <text x="660" y="487" fill="#dc2626" font-size="13" font-weight="bold">Mandatory</text>
+                    </g>
+                    
+                    <!-- Key Differences Note -->
+                    <rect x="50" y="520" width="800" height="80" fill="#fffbeb" stroke="#fbbf24" stroke-width="1" rx="5"/>
+                    <text x="60" y="540" fill="#92400e" font-size="14" font-weight="bold">Credit Card Specific Requirements:</text>
+                    <text x="60" y="560" fill="#78350f" font-size="13">• PURCHASE DISPUTE: Merchant must be contacted first if &lt;30 days</text>
+                    <text x="60" y="578" fill="#78350f" font-size="13">• FRAUD: Immediate card cancellation, fraud flag on account</text>
+                    <text x="60" y="596" fill="#78350f" font-size="13">• INTERNATIONAL: Embassy letter may be required for large amounts</text>
+                    
+                    <!-- Action Buttons -->
+                    <rect x="50" y="610" width="140" height="35" fill="#10b981" rx="5" class="interactive button-hover"/>
+                    <text x="120" y="632" fill="white" font-size="14" text-anchor="middle">Export Comparison</text>
+                    
+                    <rect x="200" y="610" width="140" height="35" fill="#3182ce" rx="5" class="interactive button-hover"/>
+                    <text x="270" y="632" fill="white" font-size="14" text-anchor="middle">View Detailed Steps</text>
+                    
+                    <rect x="350" y="610" width="150" height="35" fill="#8b5cf6" rx="5" class="interactive button-hover"/>
+                    <text x="425" y="632" fill="white" font-size="14" text-anchor="middle">CC Dispute Flowchart</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity
+        document.querySelectorAll('.interactive').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 200);
+            });
+        });
+
+        // Button hover effects
+        document.querySelectorAll('.button-hover').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.filter = 'brightness(1.2)';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.filter = 'brightness(1)';
+            });
+        });
+    </script>
+</body>
+</html>

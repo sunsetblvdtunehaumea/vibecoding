@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Solution for Customer Support - Value Proposition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px;
+            animation: slideIn 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #34495e;
+            margin-bottom: 25px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: #546e7a;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        p, li {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-number {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .problem-box {
+            background: #ffe4e4;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .solution-box {
+            background: #e8f8e8;
+            border-left: 5px solid #27ae60;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .value-box {
+            background: #fff3cd;
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .benefit-card {
+            background: #f7f9fc;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e3e8ef;
+        }
+
+        .benefit-title {
+            color: #667eea;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-top: 8px;
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .roi-highlight h3 {
+            color: #1a1a1a;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: #e3e8ef;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            color: #546e7a;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: white;
+            font-size: 1.4em;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-number" id="slideNumber">1 / 10</div>
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1 style="text-align: center; margin-top: 100px;">RAG-Powered Customer Support</h1>
+            <h2 style="text-align: center; color: #667eea;">Transforming Credit Card Support Operations</h2>
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.5em; color: #546e7a;">Intelligent Document Search for 2500+ Agents</p>
+                <p style="margin-top: 30px; font-size: 1.2em;">Reducing search time from minutes to seconds</p>
+            </div>
+            <div style="text-align: center; margin-top: 80px;">
+                <p style="color: #999;">Value Proposition & Implementation Strategy</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Current Challenge -->
+        <div class="slide">
+            <h1>The Current Challenge</h1>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2,500</div>
+                    <div class="stat-label">Support Agents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1-2 min</div>
+                    <div class="stat-label">Search Time Limit</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Multiple</div>
+                    <div class="stat-label">Disconnected Systems</div>
+                </div>
+            </div>
+
+            <div class="problem-box">
+                <h3>🔴 Critical Pain Points</h3>
+                <ul>
+                    <li><strong>Fragmented Information:</strong> Agents search across Excel files and multiple webpages</li>
+                    <li><strong>Customer Wait Time:</strong> Customers on hold while agents hunt for information</li>
+                    <li><strong>Time Pressure:</strong> Only 1-2 minutes to find complex policy information</li>
+                    <li><strong>Increased AHT:</strong> Inefficient searches directly impact Average Handle Time</li>
+                </ul>
+            </div>
+
+            <h3>Document Types Agents Must Navigate:</h3>
+            <ul>
+                <li>Credit card terms and conditions</li>
+                <li>Dispute resolution procedures</li>
+                <li>Fraud handling protocols</li>
+                <li>Account management procedures</li>
+                <li>Compliance and regulatory guidelines</li>
+                <li>Internal policies and workflows</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Current State Impact -->
+        <div class="slide">
+            <h1>Impact of Current System</h1>
+            
+            <h2>Operational Inefficiencies</h2>
+            
+            <div class="benefit-grid">
+                <div class="problem-box">
+                    <h3>⏱️ Time Impact</h3>
+                    <p>Agents spend 20-30% of call time searching for information across systems</p>
+                </div>
+                <div class="problem-box">
+                    <h3>😤 Customer Experience</h3>
+                    <p>Extended hold times lead to frustrated customers and poor satisfaction scores</p>
+                </div>
+                <div class="problem-box">
+                    <h3>📉 Resolution Rates</h3>
+                    <p>First Call Resolution suffers when agents can't find information quickly</p>
+                </div>
+                <div class="problem-box">
+                    <h3>💰 Cost Implications</h3>
+                    <p>Longer AHT means fewer calls handled per agent, requiring more staff</p>
+                </div>
+            </div>
+
+            <h2>The Hidden Costs</h2>
+            <ul>
+                <li><strong>Training Complexity:</strong> New agents must learn multiple systems</li>
+                <li><strong>Human Error:</strong> Wrong information from incorrect documents</li>
+                <li><strong>Escalations:</strong> Unnecessary supervisor involvement when info isn't found</li>
+                <li><strong>Agent Burnout:</strong> Frustration with inefficient tools</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: RAG Solution Overview -->
+        <div class="slide">
+            <h1>The RAG Solution</h1>
+            
+            <h2 style="color: #667eea; text-align: center;">Retrieval-Augmented Generation for Instant Answers</h2>
+            
+            <div class="solution-box">
+                <h3>✅ What is RAG?</h3>
+                <p>RAG combines the power of Large Language Models with your organization's specific documentation to provide instant, accurate answers to agent queries.</p>
+            </div>
+
+            <h2>How It Works</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <strong>Agent Types Question:</strong> Natural language query about any policy or procedure
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <strong>AI Searches:</strong> RAG instantly searches all documentation simultaneously
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <strong>Retrieves Context:</strong> Finds the most relevant information from all sources
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <strong>Generates Answer:</strong> Provides a clear, accurate answer with source references
+                    </div>
+                </div>
+            </div>
+
+            <div class="value-box">
+                <h3>💡 Key Advantage</h3>
+                <p>Agents get answers in <strong>under 5 seconds</strong> instead of 1-2 minutes of searching</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Value Proposition -->
+        <div class="slide">
+            <h1>Value Proposition</h1>
+            
+            <div class="roi-highlight">
+                <h3>Transform Your Support Operations</h3>
+                <p>From Fragmented Search → to Unified Intelligence</p>
+            </div>
+
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-title">⏰ 70% Reduction in Search Time</div>
+                    <p>From 1-2 minutes to under 5 seconds per query</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">📞 25% Reduction in AHT</div>
+                    <p>Faster information access = shorter call times</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">✅ 40% Increase in FCR</div>
+                    <p>Agents find accurate answers on the first attempt</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">😊 Higher CSAT Scores</div>
+                    <p>Reduced wait times and accurate resolutions</p>
+                </div>
+            </div>
+
+            <h2>Strategic Benefits</h2>
+            <ul>
+                <li><strong>Scalability:</strong> Same system works for 2,500 or 25,000 agents</li>
+                <li><strong>Consistency:</strong> All agents get the same accurate information</li>
+                <li><strong>Compliance:</strong> Always pulls from the latest approved documentation</li>
+                <li><strong>Knowledge Retention:</strong> Institutional knowledge is preserved and accessible</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: ROI Analysis -->
+        <div class="slide">
+            <h1>ROI Analysis</h1>
+            
+            <h2>Cost Savings Calculation</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Current AHT</div>
+                    <div class="stat-number">8 min</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Expected AHT</div>
+                    <div class="stat-number">6 min</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Time Saved</div>
+                    <div class="stat-number">25%</div>
+                </div>
+            </div>
+
+            <h3>Annual Impact (Conservative Estimates)</h3>
+            <ul>
+                <li><strong>Productivity Gain:</strong> 25% more calls handled with same headcount</li>
+                <li><strong>FTE Equivalent:</strong> Performance of 3,125 agents with 2,500 staff</li>
+                <li><strong>Cost Avoidance:</strong> $31.25M annually (625 FTE × $50K average cost)</li>
+                <li><strong>Customer Satisfaction:</strong> Reduced churn from better experience</li>
+            </ul>
+
+            <div class="roi-highlight">
+                <h3>Payback Period: 3-6 Months</h3>
+                <p>Based on implementation costs vs. operational savings</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Implementation Approach -->
+        <div class="slide">
+            <h1>Implementation Approach</h1>
+            
+            <h2>Phased Rollout Strategy</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">P1</div>
+                    <div class="timeline-content">
+                        <strong>Phase 1: Foundation (Months 1-2)</strong>
+                        <ul>
+                            <li>Document ingestion and indexing</li>
+                            <li>RAG system setup and configuration</li>
+                            <li>Initial model training and tuning</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">P2</div>
+                    <div class="timeline-content">
+                        <strong>Phase 2: Pilot (Month 3)</strong>
+                        <ul>
+                            <li>Deploy to 100 agents for testing</li>
+                            <li>Gather feedback and metrics</li>
+                            <li>Refine accuracy and response time</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">P3</div>
+                    <div class="timeline-content">
+                        <strong>Phase 3: Scale (Months 4-5)</strong>
+                        <ul>
+                            <li>Gradual rollout to all 2,500 agents</li>
+                            <li>Training and change management</li>
+                            <li>Continuous optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">P4</div>
+                    <div class="timeline-content">
+                        <strong>Phase 4: Optimize (Month 6+)</strong>
+                        <ul>
+                            <li>Performance monitoring and tuning</li>
+                            <li>Advanced features deployment</li>
+                            <li>Expansion to other use cases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Technical Architecture -->
+        <div class="slide">
+            <h1>Technical Architecture</h1>
+            
+            <h2>High-Level Components</h2>
+            
+            <div class="solution-box">
+                <h3>Core RAG Components</h3>
+                <ul>
+                    <li><strong>Document Ingestion:</strong> Automated pipeline for Excel, web pages, PDFs</li>
+                    <li><strong>Vector Database:</strong> Efficient storage and retrieval of embedded documents</li>
+                    <li><strong>LLM Integration:</strong> State-of-the-art language model for understanding and generation</li>
+                    <li><strong>API Layer:</strong> Seamless integration with existing agent desktop</li>
+                    <li><strong>Monitoring:</strong> Real-time performance and accuracy tracking</li>
+                </ul>
+            </div>
+
+            <h3>Technology Stack Options</h3>
+            <div class="tech-stack">
+                <div class="tech-badge">OpenAI GPT-4</div>
+                <div class="tech-badge">Azure Cognitive Search</div>
+                <div class="tech-badge">Pinecone Vector DB</div>
+                <div class="tech-badge">LangChain</div>
+                <div class="tech-badge">FastAPI</div>
+                <div class="tech-badge">Docker/Kubernetes</div>
+            </div>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Sub-second response time for 95% of queries</li>
+                <li>99.9% uptime SLA</li>
+                <li>Automatic document updates and re-indexing</li>
+                <li>Multi-language support capabilities</li>
+                <li>Audit trail and compliance logging</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: Success Metrics -->
+        <div class="slide">
+            <h1>Success Metrics & KPIs</h1>
+            
+            <h2>Primary Metrics</h2>
+            
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-title">📊 Average Handle Time (AHT)</div>
+                    <p>Target: 25% reduction within 6 months</p>
+                    <p>Baseline: 8 minutes → Target: 6 minutes</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">🎯 First Call Resolution (FCR)</div>
+                    <p>Target: 40% improvement</p>
+                    <p>Baseline: 65% → Target: 91%</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">⚡ Query Response Time</div>
+                    <p>Target: <5 seconds for 95% of queries</p>
+                    <p>Current: 60-120 seconds</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">😊 Customer Satisfaction (CSAT)</div>
+                    <p>Target: +15 point improvement</p>
+                    <p>Reduced hold times and accurate answers</p>
+                </div>
+            </div>
+
+            <h2>Secondary Metrics</h2>
+            <ul>
+                <li><strong>Agent Satisfaction:</strong> Measure tool satisfaction via surveys</li>
+                <li><strong>Escalation Rate:</strong> Track reduction in supervisor escalations</li>
+                <li><strong>Training Time:</strong> Reduce new agent onboarding by 30%</li>
+                <li><strong>Documentation Coverage:</strong> % of queries successfully answered</li>
+                <li><strong>System Adoption:</strong> % of agents actively using the system</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Next Steps -->
+        <div class="slide">
+            <h1>Next Steps</h1>
+            
+            <div class="cta-section">
+                <h2>Ready to Transform Your Customer Support?</h2>
+                <p>Let's build a smarter, faster support experience together</p>
+            </div>
+
+            <h2>Immediate Actions</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <strong>Stakeholder Alignment</strong>
+                        <p>Secure executive sponsorship and budget approval</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <strong>Technical Assessment</strong>
+                        <p>Audit current documentation and systems</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <strong>Vendor Selection</strong>
+                        <p>Evaluate RAG platform options and partners</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <strong>Pilot Planning</strong>
+                        <p>Select pilot team and define success criteria</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Key Questions to Address</h3>
+            <ul>
+                <li>What's our budget range for this initiative?</li>
+                <li>Who will be the executive sponsor?</li>
+                <li>Which team will lead the pilot program?</li>
+                <li>What's our target go-live date?</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 1.3em; color: #667eea;"><strong>Contact: [Your Team/Email]</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const slideNumber = document.getElementById('slideNumber');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            slideNumber.textContent = `${currentSlide} / ${totalSlides}`;
+            
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+            if (event.key === ' ' || event.key === 'Enter') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
